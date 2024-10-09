@@ -119,7 +119,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/dashboard"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-200"
                   >
                     Dashboard
                   </Link>
@@ -127,7 +127,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/productlist"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-200"
                   >
                     Products
                   </Link>
@@ -135,7 +135,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/categorylist"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-200"
                   >
                     Category
                   </Link>
@@ -143,7 +143,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/orderlist"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-200"
                   >
                     Orders
                   </Link>
@@ -151,7 +151,7 @@ const Navigation = () => {
                 <li>
                   <Link
                     to="/admin/userlist"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block px-4 py-2 hover:bg-gray-200"
                   >
                     Users
                   </Link>
@@ -160,14 +160,14 @@ const Navigation = () => {
             )}
 
             <li>
-              <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100">
+              <Link to="/profile" className="block px-4 py-2 hover:bg-gray-200">
                 Profile
               </Link>
             </li>
             <li>
               <button
                 onClick={logoutHandler}
-                className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+                className="block w-full px-4 py-2 text-left hover:bg-gray-200"
               >
                 Logout
               </button>
