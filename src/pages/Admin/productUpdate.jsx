@@ -11,9 +11,9 @@ import { toast } from "react-toastify";
 
 const ProductUpdate = () => {
   const params = useParams();
-  console.log("params", params);
+  console.log("params", params._id);
 
-  const { data: productData } = useGetProductByIdQuery(params._id);
+  const { data: productData } = useGetProductByIdQuery(params);
   console.log("productdata", productData);
 
   const [image, setImage] = useState(productData?.image || "");
@@ -34,17 +34,17 @@ const ProductUpdate = () => {
   const [updateProduct] = useUpdateProductMutation();
   const [deleteProduct] = useDeleteProductMutation();
 
-  //   useEffect(() => {
-  //     if (productData && productData._id) {
-  //       setName(productData.name);
-  //       setDescription(productData.description);
-  //       setPrice(productData.price);
-  //       setCategory(productData.categories?._id);
-  //       setQuantity(productData.setQuantity);
-  //       setBrand(productData?.brand);
-  //       setImage(productData?.image);
-  //     }
-  //   }, [productData]);
+  useEffect(() => {
+    if (productData && productData._id) {
+      setName(productData.name);
+      setDescription(productData.description);
+      setPrice(productData.price);
+      setCategory(productData.categories?._id);
+      setQuantity(productData.setQuantity);
+      setBrand(productData?.brand);
+      setImage(productData?.image);
+    }
+  }, [productData]);
 
   return (
     <>
