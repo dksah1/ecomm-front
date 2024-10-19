@@ -11,9 +11,9 @@ import { toast } from "react-toastify";
 
 const ProductUpdate = () => {
   const params = useParams();
-  console.log("params", params._id);
+  console.log("params", params);
 
-  const { data: productData } = useGetProductByIdQuery(params);
+  const { data: productData } = useGetProductByIdQuery(params._id);
   console.log("productdata", productData);
 
   const [image, setImage] = useState(productData?.image || "");
