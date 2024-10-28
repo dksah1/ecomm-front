@@ -15,7 +15,7 @@ const ProductUpdate = () => {
   // console.log("params", params);
 
   const { data: productData } = useGetProductByIdQuery(params._id);
-  console.log("productdata", productData);
+  // console.log("productdata", productData);
 
   const [image, setImage] = useState(productData?.image || "");
   const [name, setName] = useState(productData?.name || "");
@@ -37,13 +37,13 @@ const ProductUpdate = () => {
 
   useEffect(() => {
     if (productData) {
-      setName(productData.name || "");
-      setDescription(productData.description || "");
-      setPrice(productData.price || "");
-      setCategory(productData.category?._id || "");
-      setQuantity(productData.quantity || "");
-      setBrand(productData.brand || "");
-      setImage(productData.image || "");
+      setName(productData?.name || "");
+      setDescription(productData?.description || "");
+      setPrice(productData?.price || "");
+      setCategory(productData?.category || "");
+      setQuantity(productData?.quantity || "");
+      setBrand(productData?.brand || "");
+      setImage(productData?.image || "");
     }
   }, [productData]);
 
@@ -52,16 +52,10 @@ const ProductUpdate = () => {
     formData.append("image", e.target.files[0]);
     try {
       const res = await uploadProductImage(formData).unwrap();
-      toast.success("Item added successfully", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 2000,
-      });
+      toast.success("Item added successfully");
       setImage(res.image);
     } catch (err) {
-      toast.success("Item added successfully", {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 2000,
-      });
+      toast.success("Item added successfully");
       console.log(err);
     }
   };
@@ -79,14 +73,13 @@ const ProductUpdate = () => {
       formData.append("brand", brand);
       formData.append("countInStock", stock);
 
-      // Update product using the RTK Query mutation
       const data = await updateProduct({ productId: params._id, formData });
 
       if (data?.error) {
         toast.error(data.error);
       } else {
         toast.success(`Product successfully updated`);
-        navigate("/admin/allproductslist");
+        navigate("/admin/allproductlist");
       }
     } catch (err) {
       console.log(err);
