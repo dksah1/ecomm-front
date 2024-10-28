@@ -55,7 +55,7 @@ const ProductCarousel = () => {
                   alt={name}
                   className="w-full rounded-lg object-cover h-[30rem] "
                 />
-                <div className="flex justify-between w-[20rem]">
+                <div className="flex justify-between w-full ">
                   <div className="one">
                     <h2>{name}</h2>
                     <p>${price}</p> <br />
@@ -67,7 +67,7 @@ const ProductCarousel = () => {
                     className="flex justify-between w-[20rem]
                   "
                   >
-                    <div className="one">
+                    <div className="one ">
                       <h1 className="flex items-center mb-6">
                         <FaStore className="mr-2 text-white " /> Brand:{brand}
                       </h1>
@@ -81,10 +81,18 @@ const ProductCarousel = () => {
                       </h1>
                     </div>
                     <div className="two">
-                      <div className="flex items-center mb-6 w-[5rem]">
+                      <h1 className="flex items-center mb-6 w-[5rem]">
                         <FaStar className=" mr-2 text-white" />
                         Ratings: {Math.round(rating)}
-                      </div>
+                      </h1>
+                      <h1 className="flex items-center mb-6 w-[5rem]">
+                        <FaShoppingCart className=" mr-2 text-white" />
+                        Quantity:{quantity}
+                      </h1>
+                      <h1 className="flex items-center mb-6 w-[5rem]">
+                        <FaBox className=" mr-2 text-white" />
+                        In Stock:{countInStock}
+                      </h1>
                     </div>
                   </div>
                 </div>
