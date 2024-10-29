@@ -1,5 +1,6 @@
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import HeartIcon from "./HeartIcon";
 
 const SmallProduct = ({ product }) => {
   return (
@@ -10,7 +11,7 @@ const SmallProduct = ({ product }) => {
           alt={product.name}
           className="h-[160px] w-[280px] rounded"
         />
-        <FaHeart product={product} />
+        <HeartIcon product={product} />
       </div>
 
       <div className="p-4">
