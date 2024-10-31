@@ -8,6 +8,10 @@ body {
 }
 
 input,
-textarea {
+textarea,
+select {
   color: #000;
+}
+select {
+  background-color: #c9bfbf;
 }

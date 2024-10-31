@@ -51,8 +51,63 @@ const ProductTabs = ({
           }`}
           onClick={() => handleTabClick(3)}
         >
-          Related product
+          Related products
         </div>
+      </section>
+      {/* second part */}
+      <section>
+        {activeTab === 1 && (
+          <div className="mt-4">
+            {userInfo ? (
+              <form onSubmit={submitHandler}>
+                <div className="my-2">
+                  <label htmlFor="rating" className="block text-xl mb-2 ">
+                    Rating
+                  </label>
+                  <select
+                    id="rating "
+                    required
+                    value={rating}
+                    onChange={(e) => setRating(e.target.value)}
+                    className="p-2 border rounded-lg xl:w-[40rem] 
+                  text-block"
+                  >
+                    <option value="">Select</option>
+                    <option value="1">Inferior</option>
+                    <option value="2">Decent</option>
+                    <option value="3">Great</option>
+                    <option value="4">Excellent</option>
+                    <option value="5">Exceptional</option>
+                  </select>
+                </div>
+                <div className="my-2">
+                  <label htmlFor="comment" className="block text-xl mb-2">
+                    Comment
+                  </label>
+                  <textarea
+                    id="comment"
+                    rows="3"
+                    required
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    className="p-2 border rounded-lg xl:w-[40rem] text-black"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  disabled={loadingProductReview}
+                  className="bg-pink-600 text-white py-2 px-4 rounded-lg"
+                >
+                  submit
+                </button>
+              </form>
+            ) : (
+              <p>
+                please<Link to="/login">sign In</Link> to write a review{" "}
+              </p>
+            )}
+          </div>
+        )}
       </section>
     </div>
   );
