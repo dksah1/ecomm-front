@@ -109,6 +109,24 @@ const ProductTabs = ({
           </div>
         )}
       </section>
+      <section>
+        {activeTab === 2 && (
+          <>
+            <div className="">
+              {product?.reviews?.length === 0 && <p>No Product review</p>}
+            </div>
+            <div className="">
+              {/* {product.reviews.map((review, index) => (
+              <div className="" key={review._id} 
+              
+              >
+
+              </div>
+            ))} */}
+            </div>
+          </>
+        )}
+      </section>
     </div>
   );
 };
