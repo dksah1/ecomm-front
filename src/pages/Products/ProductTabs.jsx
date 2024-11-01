@@ -116,15 +116,38 @@ const ProductTabs = ({
               {product?.reviews?.length === 0 && <p>No Product review</p>}
             </div>
             <div className="">
-              {/* {product.reviews.map((review, index) => (
-              <div className="" key={review._id} 
-              
-              >
-
-              </div>
-            ))} */}
+              {product.reviews.map((review, index) => (
+                <div
+                  key={review._id}
+                  className="bg-[#1a1a1a] p-4 rounded-lg xl:ml-[2rem] sm:ml-[0rem] xl:w-[50rem] sm:w-[24rem] mb-5 "
+                >
+                  <div className="flex justify-between">
+                    <strong className="text-[#b0b0b0]">{review.name}</strong>
+                    <p className="text-[#b0b0b0]">
+                      {review.createdAt.substring(0, 10)}
+                    </p>
+                  </div>
+                  <p className="my-4 text-[#b0b0b0]">{review.comment}</p>
+                  <Ratings value={review.rating} />
+                </div>
+              ))}
             </div>
           </>
+        )}
+      </section>
+      <section>
+        {activeTab === 3 && (
+          <section className="ml-[4rem] flex flex-wrap ">
+            {!data ? (
+              <Loader />
+            ) : (
+              data.map((item) => (
+                <div key={item._id}>
+                  <SmallProduct product={item} />
+                </div>
+              ))
+            )}
+          </section>
         )}
       </section>
     </div>

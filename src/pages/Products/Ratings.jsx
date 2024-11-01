@@ -1,4 +1,4 @@
-import { FaRegStar, FaStar, FaStarHalf, FaStarHalfAlt } from "react-icons/fa";
+import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const Ratings = ({ value, text, color }) => {
   const fullStar = Math.floor(value);
