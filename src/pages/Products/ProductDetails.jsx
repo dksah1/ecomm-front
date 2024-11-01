@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import {
   useGetProductDetailsQuery,
@@ -19,10 +19,14 @@ import moment from "moment";
 import HeartIcon from "./HeartIcon";
 import Ratings from "./Ratings";
 import ProductTabs from "./ProductTabs";
+import { addToCart } from "../../redux/features/cart/cartSlice";
 
 const ProductDetails = () => {
   const { id: productId } = useParams();
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [quantity, setQuantity] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
@@ -54,6 +58,11 @@ const ProductDetails = () => {
     } catch (error) {
       toast.error(error?.data || error.message);
     }
+  };
+
+  const addToCartHandler = () => {
+    dispatch(addToCart({ ...product, quantity }));
+    navigate("/cart");
   };
 
   return (
@@ -143,7 +152,7 @@ const ProductDetails = () => {
             </div>
             <div className="btn-container">
               <button
-                // onClick={addToCart}
+                onClick={addToCartHandler}
                 disabled={product.countInStock === 0}
                 className="bg-pink-600 text-white py-2 px-4 rounded-lg"
               >
